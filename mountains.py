@@ -2,19 +2,55 @@ import re
 import requests
 from bs4 import BeautifulSoup
 
-response = requests.get('https://14ers.com/routes.php')
-html = BeautifulSoup(response.text, 'html.parser')
-#results = html.table.tr.get_text()
-#results = html.find_all('tr')
-#item = []
-#for r in results:
-#	item.append(r.get_text(strip=True))
-#print(item)
+# Pulling the raw HTML for the entire page
+res = requests.get('https://14ers.com/routes.php')
+html = BeautifulSoup(res.text, 'html.parser')
+
+
+# Getting table data for the mountain data
+td = html.find_all('tr')
+mtd = []
+## Puts all the meta mountain data into a very messy list
+for row in td:
+	mtd.append(row.get_text(strip=True))
+
+
+
+## Pulling the links for all of the routes to use at a later time in order to scrape the route data automatically
 routes = []
-for tag in html.find_all('div', {'class': 'niceborder'}):
-	for a in tag.find_all('a',href=True):
-		routes.append(a['href'])
-print(routes)
+for divtag in html.find_all('div', {'class': 'niceborder'}):
+	for atag in divtag.find_all('a',href=True):
+		if atag['href'][0:6] == 'routel':
+			routes.append(atag['href'])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
