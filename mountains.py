@@ -84,35 +84,42 @@ import numpy
 def get_weather_urls():
 	response = requests.get('https://www.14ers.com/php14ers/weather.php')
 	html = BeautifulSoup(response.text, 'html.parser')
+	name = "(.+)(,)( )(Mt.)"
+	urls = dict({})
 	for div in html.find_all('optgroup', {'label': 'Colorado 14ers'}):
 		for atag in div.find_all('option'):
 			url = 'https://www.14ers.com/php14ers/ajax_weather1.php?' + atag['value']
-			name = "(.+)(,)( )(Mt.)"
-			match = re.search(name, str(atag.text)).group(4)
+			match = re.search(name, str(atag.text))
 			if match:
 					mtn_name = re.search(name, str(atag.text)).group(4) + ' ' + re.search(name, str(atag.text)).group(1)
 			else:
 					mtn_name = atag.text
-			print(url,mtn_name)
+			urls[mtn_name] = url
+	return urls
+
+def get_mountain_weather():
+	mtn_url = get_weather_urls()
+	reg = "(.+)(:)( \d+)(°F)(\d+-?\d+)(mph)(.+)"
+	all_weather = []
+	for mtn_name,url in mtn_url.items():
+		response = requests.get(url)
+		html = BeautifulSoup(response.text, 'html.parser')
+		weather = [mtn_name]
+		for divtag in html.find_all('table', {'class': 'forecastDays'}):
+			for atag in divtag.find_all('td'):
+				weather.append(atag.get_text(strip=True))
+		all_weather.append(weather)
+	return all_weather
+
+print(get_mountain_weather())
 
 
-get_weather_urls()
+def clean_weather():
+	raw = get_mountain_weather()
+	for i in raw:
+		print(i)
 
 
-
-# def get_mountain_weather():
-#
-# 		for atag in div.find_all('option'):
-# 			weather = []
-# 			match = re.search(name, atag.text)
-# 			url = 'https://www.14ers.com/php14ers/ajax_weather1.php?' + atag['value']
-# 			response = requests.get(url)
-# 			html = BeautifulSoup(response.text, 'html.parser')
-# 			reg = "(.+)(:)( \d+)(°F)(\d+-?\d+)(mph)(.+)"
-# 			for divtag in html.find_all('table', {'class': 'forecastDays'}):
-# 				for atag in divtag.find_all('td'):
-# 					print(atag)
-					#weather = weather.append(atag.get_text(strip=True))
 
 
 # #status  = get_status()
