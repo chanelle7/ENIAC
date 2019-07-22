@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c7b1cdf3-ef4e-41d7-9b9d-55cbf5b2396b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/Colorado14ers.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Colorado14ers.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,8 +28,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="45">
-                <caret line="3" column="56" selection-start-line="3" selection-start-column="56" selection-end-line="3" selection-end-column="56" />
+              <first_editor relative-caret-position="165">
+                <caret line="11" lean-forward="true" selection-end-line="11" />
               </first_editor>
               <second_editor />
             </state>
@@ -410,8 +409,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="45">
-            <caret line="3" column="56" selection-start-line="3" selection-start-column="56" selection-end-line="3" selection-end-column="56" />
+          <first_editor relative-caret-position="165">
+            <caret line="11" lean-forward="true" selection-end-line="11" />
           </first_editor>
           <second_editor />
         </state>
