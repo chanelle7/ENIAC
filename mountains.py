@@ -20,7 +20,7 @@ def clean_mountain_data(mountain_data):
 		mountain = []
 		match = re.match(reg,str(mountain_data[i]))
 		name = match.group(1)
-		details = [int(match.group(2).replace(',','')),int(match.group(4).replace('*','')),match.group(5)]
+		details = [int(match.group(2).replace(',','')),(match.group(4).replace('*','')),match.group(5)]
 		mountains[name] = details
 	return mountains
 
@@ -157,6 +157,12 @@ def call_data():
 	# crowdsize = get_crowdsize()
 	# status = get_status()
 	return mountain_detail, routes, weather_data
+	# print(mountain_detail)
+	# print("-"*50)
+	# print(routes)
+	# print("-" * 50)
+	# print(weather_data)
+	# print("-" * 50)
 
 
 if __name__ == '__main__':
