@@ -14,17 +14,15 @@ def get_mountains():
 	return mountain_data
 
 def clean_mountain_data(mountain_data):
-	mountain_detail = []
+	mountains = {}
 	reg = "(.+)(14,\d{3})(')(\d+|\*?)(.+)"
 	for i in range(0, len(mountain_data)):
-		match = re.match(reg,str(mountain_data[i]))
 		mountain = []
-		mountain.append(match.group(1))
-		mountain.append(int(match.group(2).replace(',','')))
-		mountain.append(int(match.group(4).replace('*','-1')))
-		mountain.append(match.group(5))
-		mountain_detail.append(mountain)
-	return mountain_detail
+		match = re.match(reg,str(mountain_data[i]))
+		name = match.group(1)
+		details = [int(match.group(2).replace(',','')),int(match.group(4).replace('*','-1')),match.group(5)]
+		mountains[name] = details
+	return mountains
 
 def get_route_list(html):
 	route_pages = set()
@@ -36,13 +34,23 @@ def get_route_list(html):
 
 
 def get_routes(route_pages):
-	routes = set({})
+	route_data = {}
 	for link in route_pages:
 		response = requests.get('https://14ers.com/' + link)
 		html = BeautifulSoup(response.text, 'html.parser')
-		table_body = html.find_all('tr')
-		[routes.add(x.get_text(strip=True)) for x in table_body if x.get_text(strip=True)[:4] != 'Trip' and x.get_text(strip=True)[0:12] != 'RoutesRoutes']
-	return list(routes)
+		route_list = []
+		for tf in html.find_all('td',{'class': 'show-8'}):
+			for div in tf.find_all('a', {'class': 'bold1 routeLink'}):
+				single = re.search('(.*)( - )(.*)',div.get_text(strip=True))
+				if single:
+					mountain_name = single.group(1)
+					for ref in tf.find_all('a', {'style': 'outline:none;text-decoration:none;color:black;display:block;width:100%;'}):
+						route_text = re.search('(Difficulty:)(.*\d)( ?Total Elevation Gain: |.+Snow)(Total Elevation Gain: )?(\d+,?\d+?)( feetRound-trip Distance: )(\d+.\d+)( miles)',ref.get_text(strip=True))
+						if route_text:
+							route_list.append([single.group(3),route_text.group(2),route_text.group(3).replace('Total Elevation Gain:', 'No Reported Snow'),route_text.group(5), route_text.group(7)])
+		if route_list:
+			route_data[mountain_name] = tuple(route_list)
+	return route_data
 
 
 def get_crowdsize():
@@ -141,23 +149,21 @@ class Mountain():
 
 def call_data():
 	raw_mountain = get_mountains()
-	clean_mountain_data(raw_mountain)
+	mountain_detail = clean_mountain_data(raw_mountain)
 	route_pages = get_route_list(html)
 	routes = get_routes(route_pages)
 	crowdsize = get_crowdsize()
 	status = get_status()
 	all_weather = get_mountain_weather()
 	weather_data = mountain_weather(all_weather)
-	print('ROUTES: ',routes)
+	print(routes)
 	print('--'*50)
-	print('CROWD SIZE: ', crowdsize)
+	print(weather_data)
 	print('--'*50)
-	print('STATUS: ', status)
-	print('--'*50)
-	print('WEATHER DATA: ' ,weather_data)
-	print('--'*50)
+	print(mountain_detail)
 
 
-call_data()
 
-# if __name__ == '__main__':
+if __name__ == '__main__':
+	call_data()
+
