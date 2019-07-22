@@ -20,7 +20,7 @@ def clean_mountain_data(mountain_data):
 		mountain = []
 		match = re.match(reg,str(mountain_data[i]))
 		name = match.group(1)
-		details = [int(match.group(2).replace(',','')),int(match.group(4).replace('*','-1')),match.group(5)]
+		details = [int(match.group(2).replace(',','')),int(match.group(4).replace('*','')),match.group(5)]
 		mountains[name] = details
 	return mountains
 
@@ -47,7 +47,7 @@ def get_routes(route_pages):
 					for ref in tf.find_all('a', {'style': 'outline:none;text-decoration:none;color:black;display:block;width:100%;'}):
 						route_text = re.search('(Difficulty:)(.*\d)( ?Total Elevation Gain: |.+Snow)(Total Elevation Gain: )?(\d+,?\d+?)( feetRound-trip Distance: )(\d+.\d+)( miles)',ref.get_text(strip=True))
 						if route_text:
-							route_list.append([single.group(3),route_text.group(2),route_text.group(3).replace('Total Elevation Gain:', 'No Reported Snow'),route_text.group(5), route_text.group(7)])
+							route_list.append([single.group(3),route_text.group(2),route_text.group(3).replace('Total Elevation Gain:', ''),route_text.group(5).replace(',',''), route_text.group(7).replace(',','')])
 		if route_list:
 			route_data[mountain_name] = tuple(route_list)
 	return route_data
@@ -152,16 +152,11 @@ def call_data():
 	mountain_detail = clean_mountain_data(raw_mountain)
 	route_pages = get_route_list(html)
 	routes = get_routes(route_pages)
-	crowdsize = get_crowdsize()
-	status = get_status()
 	all_weather = get_mountain_weather()
 	weather_data = mountain_weather(all_weather)
-	print(routes)
-	print('--'*50)
-	print(weather_data)
-	print('--'*50)
-	print(mountain_detail)
-
+	# crowdsize = get_crowdsize()
+	# status = get_status()
+	return mountain_detail, routes, weather_data
 
 
 if __name__ == '__main__':

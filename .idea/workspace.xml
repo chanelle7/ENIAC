@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7b1cdf3-ef4e-41d7-9b9d-55cbf5b2396b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Colorado14ers.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Colorado14ers.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mountains.py" beforeDir="false" afterPath="$PROJECT_DIR$/mountains.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weather.py" beforeDir="false" afterPath="$PROJECT_DIR$/weather.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,14 +13,26 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mountains.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="114" column="24" lean-forward="true" selection-start-line="114" selection-start-column="24" selection-end-line="114" selection-end-column="24" />
+            <state relative-caret-position="137">
+              <caret line="22" column="83" selection-start-line="22" selection-start-column="83" selection-end-line="22" selection-end-column="83" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="206">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -38,6 +51,8 @@
     <findStrings>
       <find>(atag.span['class'][1])</find>
       <find>re</find>
+      <find>elevation</find>
+      <find>-1</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -56,12 +71,12 @@
         <option value="$PROJECT_DIR$/crowd_size.py" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
         <option value="$PROJECT_DIR$/weather.py" />
-        <option value="$PROJECT_DIR$/mountains.py" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch2.py" />
+        <option value="$PROJECT_DIR$/mountains.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="834" />
@@ -74,6 +89,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -94,7 +110,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -264,11 +279,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="834" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.16913319" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.16842847" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.32891566" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50069445" side_tool="true" weight="0.32079905" />
@@ -276,7 +291,7 @@
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" />
       <window_info anchor="bottom" id="Version Control" order="5" weight="0.32891566" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.5006954" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.5006196" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -362,8 +377,8 @@
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="32" column="7" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
+        <state relative-caret-position="206">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
@@ -372,8 +387,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mountains.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="114" column="24" lean-forward="true" selection-start-line="114" selection-start-column="24" selection-end-line="114" selection-end-column="24" />
+        <state relative-caret-position="137">
+          <caret line="22" column="83" selection-start-line="22" selection-start-column="83" selection-end-line="22" selection-end-column="83" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
